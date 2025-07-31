@@ -1,0 +1,43 @@
+{
+  "name": "role",
+  "comment": "角色",
+  "fields": [
+    {
+      "name": "id",
+      "comment": "ID",
+      "type": "string",
+      "length": 50,
+      "primary_key": true
+    },
+    {
+      "name": "tenant_id",
+      "comment": "租户ID",
+      "type": "string",
+      "length": 50,
+      "indexed": true
+    },
+    {
+      "name": "name",
+      "comment": "名称",
+      "type": "string",
+      "length": 50
+    },
+    {
+      "name": "privileges",
+      "comment": "权限",
+      "type": "text"
+    },
+    {
+      "name": "disabled",
+      "comment": "禁用",
+      "type": "bool",
+      "default": "false"
+    },
+    {
+      "name": "created",
+      "comment": "创建时间",
+      "type": "datetime",
+      "created": true
+    }
+  ]
+}

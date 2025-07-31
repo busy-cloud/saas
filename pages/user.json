@@ -8,7 +8,7 @@
       "type": "button",
       "action": {
         "type": "page",
-        "page": "saas/user-create"
+        "page": "user/user-create"
       }
     },
     {
@@ -36,7 +36,7 @@
       "title": "编辑",
       "action": {
         "type": "page",
-        "page": "saas/user-edit",
+        "page": "user/user-edit",
         "params_func": "return {id: data.id}"
       }
     },
@@ -45,7 +45,7 @@
       "title": "修改密码",
       "action": {
         "type": "page",
-        "page": "saas/user-password",
+        "page": "user/user-password",
         "params_func": "return {id: data.id}"
       }
     },
@@ -55,7 +55,7 @@
       "confirm": "确认删除？",
       "action": {
         "type": "script",
-        "script": "this.request.get('saas/user/'+data.id+'/delete').subscribe(res=>{this.load()})"
+        "script": "this.request.get('table/user/'+data.id+'/delete').subscribe(res=>{this.load()})"
       }
     }
   ],
@@ -92,5 +92,5 @@
       "type": "date"
     }
   ],
-  "search_api": "saas/user/search"
+  "search_api": "table/user/search"
 }

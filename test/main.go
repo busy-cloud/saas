@@ -26,10 +26,12 @@ func init() {
 	if err != nil {
 		log.Fatal(err)
 	}
-	apps.Register(&a)
 
 	a.AssetsFS = store.Dir("assets")
 	a.PagesFS = store.Dir("pages")
+	a.TablesFS = store.Dir("tables")
+
+	apps.Register(&a)
 }
 
 func main() {

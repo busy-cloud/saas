@@ -35,8 +35,8 @@
       "type": "switch"
     }
   ],
-  "submit_api": "saas/user/create",
-  "submit_success": "this.navigate('/page/saas/user')",
+  "submit_api": "table/user/create",
+  "submit_success": "this.navigate('/page/user/user')",
   "methods": {
    }
 }

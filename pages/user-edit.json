@@ -35,9 +35,9 @@
       "type": "switch"
     }
   ],
-  "load_api": "saas/user/:id",
-  "submit_api": "saas/user/:id",
-  "submit_success": "this.navigate('/page/saas/user')",
+  "load_api": "table/user/:id",
+  "submit_api": "table/user/:id",
+  "submit_success": "this.navigate('/page/user/user')",
   "methods": {
   }
 }
