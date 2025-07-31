@@ -20,7 +20,7 @@
       "type": "switch"
     }
   ],
-  "submit_api": "saas/role/create",
+  "submit_api": "table/role/create",
   "submit_success": "this.navigate('/page/saas/role')",
   "methods": {
    }

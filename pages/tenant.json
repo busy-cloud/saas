@@ -1,5 +1,5 @@
 {
-  "title": "角色管理",
+  "title": "租户管理",
   "template": "table",
   "toolbar": [
     {
@@ -8,7 +8,7 @@
       "type": "button",
       "action": {
         "type": "page",
-        "page": "saas/role-create"
+        "page": "user/tenant-create"
       }
     },
     {
@@ -36,16 +36,16 @@
       "title": "编辑",
       "action": {
         "type": "page",
-        "page": "saas/role-edit",
+        "page": "user/tenant-edit",
         "params_func": "return {id: data.id}"
       }
     },
     {
-      "icon": "key",
-      "title": "权限",
+      "icon": "lock",
+      "title": "修改密码",
       "action": {
         "type": "page",
-        "page": "saas/role-privileges",
+        "page": "user/tenant-password",
         "params_func": "return {id: data.id}"
       }
     },
@@ -55,7 +55,7 @@
       "confirm": "确认删除？",
       "action": {
         "type": "script",
-        "script": "this.request.get('table/role/'+data.id+'/delete').subscribe(res=>{this.load()})"
+        "script": "this.request.get('table/tenant/'+data.id+'/delete').subscribe(res=>{this.load()})"
       }
     }
   ],
@@ -69,6 +69,10 @@
       "label": "名称"
     },
     {
+      "key": "parent_id",
+      "label": "父级ID"
+    },
+    {
       "key": "disabled",
       "label": "禁用",
       "type": "boolean"
@@ -79,5 +83,5 @@
       "type": "date"
     }
   ],
-  "search_api": "table/role/search"
+  "search_api": "table/tenant/search"
 }
