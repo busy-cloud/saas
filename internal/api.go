@@ -2,7 +2,6 @@ package internal
 
 import (
 	"github.com/busy-cloud/boat/api"
-	"github.com/busy-cloud/boat/curd"
 	"github.com/busy-cloud/boat/db"
 	"github.com/gin-gonic/gin"
 )
@@ -24,35 +23,6 @@ func init() {
 	api.Register("GET", "saas/user/me", userMe)
 	//api.Register("GET", "me", userMe)
 
-	api.Register("POST", "saas/user/count", curd.ApiCount[User]())
-
-	api.Register("POST", "saas/user/search", curd.ApiSearch[User]())
-
-	api.Register("GET", "saas/user/list", curd.ApiList[User]())
-
-	api.Register("POST", "saas/user/create", curd.ApiCreateHook[User](curd.GenerateID[User](), nil))
-
-	api.Register("GET", "saas/user/:id", curd.ApiGet[User]())
-
-	api.Register("POST", "saas/user/:id", curd.ApiUpdate[User]("id", "name", "email", "cellphone", "admin", "disabled"))
-
-	api.Register("GET", "saas/user/:id/delete", curd.ApiDeleteHook[User](nil, nil))
-
-	api.Register("POST", "saas/user/:id/password", userPassword)
-
-	api.Register("GET", "saas/user/:id/enable", curd.ApiDisableHook[User](false, nil, nil))
-
-	api.Register("GET", "saas/user/:id/disable", curd.ApiDisableHook[User](true, nil, nil))
-
-	api.Register("POST", "saas/role/count", curd.ApiCount[Role]())
-	api.Register("POST", "saas/role/search", curd.ApiSearch[Role]())
-	api.Register("GET", "saas/role/list", curd.ApiList[Role]())
-	api.Register("POST", "saas/role/create", curd.ApiCreateHook[Role](curd.GenerateID[Role](), nil))
-	api.Register("GET", "saas/role/:id", curd.ApiGet[Role]())
-	api.Register("POST", "saas/role/:id", curd.ApiUpdate[Role]("id", "name", "privileges", "disabled"))
-	api.Register("GET", "saas/role/:id/delete", curd.ApiDeleteHook[Role](nil, nil))
-	api.Register("GET", "saas/role/:id/enable", curd.ApiDisableHook[Role](false, nil, nil))
-	api.Register("GET", "saas/role/:id/disable", curd.ApiDisableHook[Role](true, nil, nil))
 }
 
 func userMe(ctx *gin.Context) {
@@ -68,30 +38,4 @@ func userMe(ctx *gin.Context) {
 		return
 	}
 	api.OK(ctx, &user)
-}
-
-type userPasswordObj struct {
-	Password string `json:"password"`
-}
-
-func userPassword(ctx *gin.Context) {
-
-	var obj userPasswordObj
-	if err := ctx.ShouldBindJSON(&obj); err != nil {
-		api.Error(ctx, err)
-		return
-	}
-
-	var p Password
-	p.Id = ctx.Param("id")
-	p.Password = md5hash(obj.Password)
-
-	_, _ = db.Engine().ID(p.Id).Delete(new(Password)) //不管有没有都删掉
-	_, err := db.Engine().InsertOne(&p)
-	if err != nil {
-		api.Error(ctx, err)
-		return
-	}
-
-	api.OK(ctx, nil)
 }

@@ -3,7 +3,22 @@ package internal
 import (
 	"github.com/busy-cloud/boat/api"
 	"github.com/busy-cloud/boat/curd"
+	"github.com/busy-cloud/boat/db"
+	"time"
 )
+
+func init() {
+	db.Register(new(UserLog))
+}
+
+type UserLog struct {
+	Id      string    `json:"id"`
+	Name    string    `json:"name,omitempty"`
+	Action  string    `json:"action,omitempty"`
+	Client  string    `json:"client,omitempty"`
+	Ip      string    `json:"ip,omitempty"`
+	Created time.Time `json:"created,omitempty" xorm:"created"`
+}
 
 func init() {
 
