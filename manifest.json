@@ -1,0 +1,36 @@
+{
+  "id": "saas",
+  "icon": "saas.png",
+  "name": "多租户",
+  "description": "多租户管理系统",
+  "version": "v0.0.1",
+  "shortcuts": [
+    {
+      "name": "用户管理",
+      "url": "page/saas/user",
+      "icon": "saas.png"
+    }
+  ],
+  "menus": [
+    {
+      "name": "多租户管理",
+      "nz_icon": "user",
+      "index": 700,
+      "items": [
+        {
+          "name": "用户管理",
+          "url": "page/saas/user"
+        },
+        {
+          "name": "角色管理",
+          "url": "page/saas/role"
+        },
+        {
+          "name": "用户日志",
+          "url": "page/saas/log"
+        }
+      ]
+    }
+  ],
+  "pages": "pages"
+}
