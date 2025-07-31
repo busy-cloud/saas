@@ -1,9 +1,11 @@
 package main
 
 import (
+	"encoding/json"
 	"github.com/busy-cloud/boat/apps"
 	"github.com/busy-cloud/boat/boot"
 	"github.com/busy-cloud/boat/log"
+	"github.com/busy-cloud/boat/store"
 	"github.com/busy-cloud/boat/web"
 	_ "github.com/busy-cloud/saas/internal"
 	"github.com/spf13/viper"
@@ -13,12 +15,25 @@ import (
 )
 
 func init() {
-	//测试
-	apps.Pages().Dir("pages", "")
+	manifest, err := os.ReadFile("manifest.json")
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	//注册为内部插件
+	var a apps.App
+	err = json.Unmarshal(manifest, &a)
+	if err != nil {
+		log.Fatal(err)
+	}
+	apps.Register(&a)
+
+	a.AssetsFS = store.Dir("assets")
+	a.PagesFS = store.Dir("pages")
 }
 
 func main() {
-	viper.SetConfigName("user")
+	viper.SetConfigName("saas")
 
 	sigs := make(chan os.Signal, 1)
 	signal.Notify(sigs, syscall.SIGINT, syscall.SIGTERM)

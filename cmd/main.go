@@ -12,7 +12,7 @@ import (
 )
 
 func main() {
-	viper.SetConfigName("user")
+	viper.SetConfigName("saas")
 
 	sigs := make(chan os.Signal, 1)
 	signal.Notify(sigs, syscall.SIGINT, syscall.SIGTERM)
