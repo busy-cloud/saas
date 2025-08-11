@@ -85,6 +85,8 @@ func login(ctx *gin.Context) {
 
 	//存入session
 	session.Set("user", user.Id)
+	session.Set("admin", user.Admin)
+	session.Set("tenant", user.TenantId)
 	_ = session.Save()
 
 	api.OK(ctx, user)
