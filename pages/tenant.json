@@ -69,8 +69,8 @@
       "label": "名称"
     },
     {
-      "key": "parent_id",
-      "label": "父级ID"
+      "key": "parent",
+      "label": "父级"
     },
     {
       "key": "disabled",

@@ -1,10 +1,27 @@
 {
   "title": "创建角色",
   "template": "form",
+  "toolbar": [
+    {
+      "type": "button",
+      "label": "选择租户ID",
+      "action": {
+        "type": "dialog",
+        "page": "saas/tenant-choose",
+        "after_close": "this.editor.patchValue({tenant_id: result.id})"
+      }
+    }
+  ],
   "fields": [
     {
       "key": "id",
       "label": "ID",
+      "type": "text",
+      "required": true
+    },
+    {
+      "key": "tenant_id",
+      "label": "租户ID",
       "type": "text",
       "required": true
     },

@@ -82,6 +82,10 @@
       "type": "boolean"
     },
     {
+      "key": "tenant",
+      "label": "租户"
+    },
+    {
       "key": "disabled",
       "label": "禁用",
       "type": "boolean"

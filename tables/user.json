@@ -1,6 +1,15 @@
 {
   "name": "user",
   "comment": "用户",
+  "joins": [
+    {
+      "table": "tenant",
+      "local_field": "tenant_id",
+      "foreign_field": "id",
+      "field": "name",
+      "as": "tenant"
+    }
+  ],
   "fields": [
     {
       "name": "id",
