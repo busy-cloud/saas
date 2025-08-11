@@ -36,8 +36,8 @@
       "type": "switch"
     }
   ],
-  "load_api": "table/tenant/:id",
-  "submit_api": "table/tenant/:id",
+  "load_api": "table/tenant/detail/:id",
+  "submit_api": "table/tenant/update/:id",
   "submit_success": "this.navigate('/page/user/tenant')",
   "methods": {
   }

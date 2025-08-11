@@ -20,8 +20,8 @@
       "type": "switch"
     }
   ],
-  "load_api": "table/role/:id",
-  "submit_api": "table/role/:id",
+  "load_api": "table/role/detail/:id",
+  "submit_api": "table/role/update/:id",
   "submit_success": "this.navigate('/page/saas/role')",
   "methods": {
   }
