@@ -36,7 +36,7 @@
     }
   ],
   "submit_api": "table/user/create",
-  "submit_success": "this.navigate('/page/user/user')",
+  "submit_success": "this.navigate('/page/saas/user')",
   "methods": {
    }
 }

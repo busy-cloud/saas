@@ -37,7 +37,7 @@
   ],
   "load_api": "table/user/detail/:id",
   "submit_api": "table/user/update/:id",
-  "submit_success": "this.navigate('/page/user/user')",
+  "submit_success": "this.navigate('/page/saas/user')",
   "methods": {
   }
 }

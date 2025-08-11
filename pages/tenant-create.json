@@ -7,7 +7,7 @@
       "label": "选择父级ID",
       "action": {
         "type": "dialog",
-        "page": "user/tenant-choose",
+        "page": "saas/tenant-choose",
         "after_close": "this.editor.patchValue({parent_id: result.id})"
       }
     }
@@ -37,7 +37,7 @@
     }
   ],
   "submit_api": "table/tenant/create",
-  "submit_success": "this.navigate('/page/user/tenant')",
+  "submit_success": "this.navigate('/page/saas/tenant')",
   "methods": {
   }
 }
