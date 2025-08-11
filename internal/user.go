@@ -1,6 +1,6 @@
 package internal
 
-import "github.com/busy-cloud/boat/time"
+import "time"
 
 // User 用户
 type User struct {
