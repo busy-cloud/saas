@@ -13,10 +13,14 @@
   ],
   "menus": [
     {
-      "name": "多租户管理",
+      "name": "用户管理",
       "nz_icon": "user",
       "index": 700,
       "items": [
+        {
+          "name": "租户管理",
+          "url": "page/saas/tenant"
+        },
         {
           "name": "用户管理",
           "url": "page/saas/user"
