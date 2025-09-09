@@ -3,7 +3,7 @@ module github.com/busy-cloud/saas
 go 1.24
 
 require (
-	github.com/busy-cloud/boat v0.6.10
+	github.com/busy-cloud/boat v0.6.19
 	github.com/gin-contrib/sessions v1.0.4
 	github.com/gin-gonic/gin v1.10.1
 	github.com/spf13/viper v1.20.1

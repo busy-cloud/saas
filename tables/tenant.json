@@ -10,7 +10,7 @@
       "as": "parent"
     }
   ],
-  "fields": [
+  "columns": [
     {
       "name": "id",
       "comment": "ID",
